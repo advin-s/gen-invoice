@@ -1,22 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import LoginPage from './pages/LoginPage';
 import InvoicePage from './pages/InvoicePage';
+import { checkAuth, getToken } from './utils/auth';
+import RootLayout from './pages/RootPage';
+import { action as logoutAction } from './pages/LogoutPage';
 
 
 const routes = createBrowserRouter([
   {
     path:'/',
-    element:<LoginPage/>
+    element:<RootLayout/>,
+    loader:getToken,
+    children:[
+      {
+        path:'/',
+        element:<LoginPage/>
+      },
+      {
+        path:'invoice',
+        element:<InvoicePage/>,
+        loader:checkAuth
+      }
+    ]
   },
   {
-    path:'invoice',
-    element:<InvoicePage/>
+    path:'logout',
+    action:logoutAction
   }
 ])
 
 function App() {
+
   return <RouterProvider router={routes}/>;
 }
 

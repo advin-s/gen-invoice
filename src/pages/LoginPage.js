@@ -1,27 +1,31 @@
 import { InvoiceIcon } from '../assets/icons/InvoiceIcon';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import Button from '../lib/Button';
 import FormField from '../lib/FormField';
+import { useState } from 'react';
+import { handleToken } from '../utils/auth';
+import { useNavigate } from 'react-router';
 
 const LoginPage = () => {
-  const onLogin = async (values) =>{
-    
-    const response = await fetch('https://dummyjson.com/auth/login',{
-      method:'POST',
-      headers:{'Content-type':'application/json'},
-      body:JSON.stringify({
-        ...values,
-      }),
-      credentials:'include'
-    })
+    const [wrongPassword, setWrongPassword] = useState(false);
+    const navigate = useNavigate();
+    const onLogin = async (values) => {
+        const response = await fetch('https://dummyjson.com/auth/login', {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({
+                ...values
+            })
+        });
 
-
-  const resData = await response.json()
-
-  console.log(resData);
-
-    
-  }
+        console.log(response);
+        if (response.status === 400) setWrongPassword(true);
+        if (response.status === 200) {
+            const resData = await response.json();
+            handleToken(resData);
+            navigate('/invoice');
+        }
+    };
     return (
         <section className="bg-theme-bg">
             <div className="container">
@@ -49,26 +53,42 @@ const LoginPage = () => {
                                         'username contains special characters';
                                 }
 
-                                if(!values.password){
-                                  errors.password = "Please provide a password"
+                                if (!values.password) {
+                                    errors.password =
+                                        'Please provide a password';
                                 }
                                 return errors;
                             }}
                             onSubmit={(values, { setSubmitting }) => {
-                                onLogin(values)
+                                onLogin(values);
                                 setSubmitting(false);
                             }}
                         >
-                            {({ isSubmitting }) => (
-                                <Form className='grid gap-y-3'>
-                                  <FormField type="text" name="username" component="div"/>
-                                  <FormField type="password" name="password" component="div"/>
+                            {({ values, isSubmitting }) => (
+                                <Form className="grid gap-y-3">
+                                    <FormField
+                                        type="text"
+                                        name="username"
+                                        component="div"
+                                    />
+                                    <FormField
+                                        type="password"
+                                        name="password"
+                                        component="div"
+                                    />
+                                    {wrongPassword && values.password ? (
+                                        <p className="text-xs text-red-500">
+                                            Incorrect email or password
+                                        </p>
+                                    ) : (
+                                        ''
+                                    )}
                                     <Button
-                                     type="submit"
-                                     disabled={isSubmitting}
-                                     customClass="bg-theme text-white"
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        customClass="bg-theme text-white"
                                     >
-                                      Submit
+                                        Submit
                                     </Button>
                                 </Form>
                             )}
@@ -79,6 +99,5 @@ const LoginPage = () => {
         </section>
     );
 };
-
 
 export default LoginPage;
