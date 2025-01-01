@@ -11,7 +11,7 @@ const RootLayout = () =>{
 
   useEffect(()=>{
     if(token){
-      navigate('/invoice')
+      navigate('/invoice/vendor-details')
     }
 
     if(!token){
