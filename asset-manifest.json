@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/gen-invoice/static/css/main.5ee6c93f.css",
+    "main.js": "/gen-invoice/static/js/main.22dd92e2.js",
+    "static/js/453.7a81b484.chunk.js": "/gen-invoice/static/js/453.7a81b484.chunk.js",
+    "index.html": "/gen-invoice/index.html",
+    "main.5ee6c93f.css.map": "/gen-invoice/static/css/main.5ee6c93f.css.map",
+    "main.22dd92e2.js.map": "/gen-invoice/static/js/main.22dd92e2.js.map",
+    "453.7a81b484.chunk.js.map": "/gen-invoice/static/js/453.7a81b484.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5ee6c93f.css",
+    "static/js/main.22dd92e2.js"
+  ]
+}
