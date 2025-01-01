@@ -5,34 +5,40 @@ import InvoicePage from './pages/InvoicePage';
 import { checkAuth, getToken } from './utils/auth';
 import RootLayout from './pages/RootPage';
 import { action as logoutAction } from './pages/LogoutPage';
-
+import CommentsPage from './pages/CommentsPage';
+import VendorDetails from './pages/VendorDetails';
+import InvoiceDetails from './pages/InvoiceDetails';
 
 const routes = createBrowserRouter([
-  {
-    path:'/',
-    element:<RootLayout/>,
-    loader:getToken,
-    children:[
-      {
-        path:'/',
-        element:<LoginPage/>
-      },
-      {
-        path:'invoice',
-        element:<InvoicePage/>,
-        loader:checkAuth
-      }
-    ]
-  },
-  {
-    path:'logout',
-    action:logoutAction
-  }
-])
+    {
+        path: '/',
+        element: <RootLayout />,
+        loader: getToken,
+        children: [
+            {
+                path: '/',
+                element: <LoginPage />
+            },
+            {
+                path: 'invoice',
+                element: <InvoicePage />,
+                loader: checkAuth,
+                children: [
+                    { path: 'comments', element: <CommentsPage /> },
+                    { path: 'vendor-details', element: <VendorDetails/> },
+                    { path: 'invoice-details', element: <InvoiceDetails /> }
+                ]
+            }
+        ]
+    },
+    {
+        path: 'logout',
+        action: logoutAction
+    }
+]);
 
 function App() {
-
-  return <RouterProvider router={routes}/>;
+    return <RouterProvider router={routes} />;
 }
 
 export default App;
