@@ -6,7 +6,7 @@ import { getTokenDuration } from "../utils/auth"
 const RootLayout = () =>{
   const navigate = useNavigate()
   const token = useLoaderData()
-  const expiresIn = getTokenDuration()
+  
   const submit = useSubmit()
 
   useEffect(()=>{
@@ -14,11 +14,16 @@ const RootLayout = () =>{
       navigate('/invoice')
     }
 
+    if(!token){
+      navigate('/')
+      return
+    }
+    const expiresIn = getTokenDuration()
     setTimeout(()=>{
       submit(null, {action:'/logout'})
     },expiresIn)
 
-  },[token,navigate,expiresIn,submit])
+  },[token,navigate,submit])
 
   return <Outlet/>
 }
