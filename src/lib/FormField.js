@@ -3,7 +3,7 @@ import { ErrorMessage, Field } from 'formik';
 const FormField = (props) => {
     return (
         <div>  
-            <label htmlFor={props.name} className='text-sm text-gray-500'>{props.name}</label>
+            <label htmlFor={props.name} className='text-sm text-theme-content'>{props.name}</label>
             <Field
                 type={props.type ? props.type : 'text'}
                 name={props.name}
