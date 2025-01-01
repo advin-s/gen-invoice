@@ -9,7 +9,11 @@ module.exports = {
         'theme':'#1787E0',
         'theme-bg':'#FFFFFF',
         'theme-content':'#0D0F11',
-        'theme-secondary':'#E8F3FC'
+        'theme-content-secondary':'#4B5768',
+        'theme-secondary':'#E8F3FC',
+        'theme-tertiary':'#E7EAEE',
+        'theme-border':'#64748B',
+        'theme-placeholder':'#A0ABBB'
       }
     },
   },
