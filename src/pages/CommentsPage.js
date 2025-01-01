@@ -11,7 +11,7 @@ const CommentsPage = () => {
     };
 
     return (
-        <>
+        <div>
             <Heading {...commentsDetails} />
             <div className='rounded-lg border-theme-border border flex items-center mt-3'>
             <Field
@@ -24,7 +24,7 @@ const CommentsPage = () => {
               <SendIcon/>
               </button>
             </div>
-        </>
+        </div>
     );
 };
 

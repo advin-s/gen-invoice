@@ -12,7 +12,7 @@ const InvoiceDetails = () => {
     };
 
     return (
-        <>
+        <div>
             <Heading {...invoiceDetails} />
             <div className="py-3">
                 <p className="text-xl font-medium capitalize">
@@ -78,7 +78,7 @@ const InvoiceDetails = () => {
                 </div>
                 <Input type="text" name="GL post date" required={true} />
             </div>
-        </>
+        </div>
     );
 };
 

@@ -2,6 +2,8 @@ import { Outlet } from "react-router"
 import Header from "../lib/Header"
 import Nav from "../lib/Nav"
 import { Form, Formik } from "formik"
+import Button from "../lib/Button"
+import MenuIcon from "../assets/icons/MenuIcon"
 
 const InvoicePage = () =>{
   return <>
@@ -34,12 +36,21 @@ const InvoicePage = () =>{
        }}
      >
        {({ isSubmitting }) => (
-         <Form>
-           
+         <Form className="">
+           <div className="h-[calc(100vh-100px-68px)] overflow-y-auto">
            <Outlet/>
-           <button type="submit" disabled={isSubmitting}>
-             Submit
-           </button>
+           </div>
+          <div className="border border-theme-tertiary p-3 rounded-md flex items-center gap-x-3">
+            <button className="p-3 border border-transparent rounded-md active:border-theme-border">
+              <MenuIcon/>
+            </button>
+            <Button customClass="border border-theme-border w-1/2" type="button">
+              Save as Draft
+            </Button>
+          <Button type="submit" customClass="bg-theme text-white w-1/2" disabled={isSubmitting}>
+             Submit & new
+           </Button>
+          </div>
          </Form>
        )}
      </Formik>

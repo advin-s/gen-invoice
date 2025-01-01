@@ -10,7 +10,7 @@ const VendorDetails = () => {
     };
 
     return (
-        <>
+        <div>
             <Heading {...cardDetails} />
             <div className="py-3">
                 <p className="text-xl font-medium capitalize">
@@ -75,7 +75,7 @@ const VendorDetails = () => {
                     </button>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
