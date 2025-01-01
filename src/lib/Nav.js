@@ -6,7 +6,16 @@ const Nav = () =>{
 const navTabs = ['vendor details', 'invoice details', 'comments']
 
 const NavTabs = ({text}) => {
-  return <NavLink to={'comments'} className="px-3 text-theme-content border-b-transparent duration-150 capitalize">
+  const createRoute = (text) =>{
+    if(text.length === 1){
+      return text
+    }
+    else{
+      return text.split(' ').join('-')
+    }
+  }
+  console.log(createRoute(text));
+  return <NavLink to={createRoute(text)} className={({isActive})=> isActive ? 'border-b-theme border-b-2 text-theme px-3 duration-150 capitalize':'text-theme-content border-b-transparent border-b-2 px-3  duration-150 capitalize'}>
     {text}
   </NavLink>
 }
