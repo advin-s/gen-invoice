@@ -35,7 +35,11 @@ const routes = createBrowserRouter([
         path: 'logout',
         action: logoutAction
     }
-]);
+],
+{
+  basename:'/gen-invoice'
+}
+);
 
 function App() {
     return <RouterProvider router={routes} />;
