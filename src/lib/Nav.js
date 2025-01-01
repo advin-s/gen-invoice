@@ -15,7 +15,7 @@ const NavTabs = ({text}) => {
     }
   }
   console.log(createRoute(text));
-  return <NavLink to={createRoute(text)} className={({isActive})=> isActive ? 'border-b-theme border-b-2 text-theme px-3 duration-150 capitalize':'text-theme-content border-b-transparent border-b-2 px-3  duration-150 capitalize'}>
+  return <NavLink to={createRoute(text)} className={({isActive})=> isActive ? 'border-b-theme border-b-2 text-theme px-3 duration-150 capitalize':'text-theme-content border-b-transparent  border-b-2 px-3  duration-150 capitalize'}>
     {text}
   </NavLink>
 }
@@ -30,7 +30,7 @@ return <div className="py-2">
     </p>
     <div className="flex items-center gap-x-2">
     {
-      navTabs.map(nav => <NavTabs text={nav} />)
+      navTabs.map((nav,index) => <NavTabs key={index} text={nav} />)
     }
     </div>
   </div>
