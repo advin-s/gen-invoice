@@ -1,9 +1,14 @@
 import Header from "../lib/Header"
+import Nav from "../lib/Nav"
 
 const InvoicePage = () =>{
   return <>
   <Header/>
-  <h1>Invoice</h1>
+  <section className="bg-theme-bg">
+  <div className="container mx-auto">
+  <Nav/>
+  </div>
+  </section>
   </>
 }
 
