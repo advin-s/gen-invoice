@@ -15,18 +15,14 @@ const InvoicePage = () =>{
   <div></div>
   <div>
   <Formik
-       initialValues={{ colors: '', password: '' }}
-      //  validate={values => {
-      //    const errors = {};
-      //    if (!values.email) {
-      //      errors.email = 'Required';
-      //    } else if (
-      //      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-      //    ) {
-      //      errors.email = 'Invalid email address';
-      //    }
-      //    return errors;
-      //  }}
+       initialValues={{vendor:''}}
+       validate={values => {
+         const errors = {};
+        if(!values){
+
+        }
+         return errors;
+       }}
        onSubmit={(values, { setSubmitting }) => {
          setTimeout(() => {
           console.log('submitting');
@@ -37,7 +33,7 @@ const InvoicePage = () =>{
      >
        {({ isSubmitting }) => (
          <Form className="">
-           <div className="h-[calc(100vh-100px-68px)] overflow-y-auto">
+           <div className="h-[calc(100vh-100px-68px)] overflow-y-auto scroll-pe-3 pe-3">
            <Outlet/>
            </div>
           <div className="border border-theme-tertiary p-3 rounded-md flex items-center gap-x-3">

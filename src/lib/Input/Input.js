@@ -3,14 +3,15 @@ import classes from './input.module.css';
 import CalendarIcon from '../../assets/icons/CalendarIcon';
 
 const Input = (props) => {
-    console.log(props);
+    console.log(props.name);
     const renderFields = (props) => {
+      console.log(props);
         switch (props.type) {
             case 'select':
                 return (
                     <div className="relative">
                         <Field
-                            name="color"
+                            name={props?.name}
                             as="select"
                             className={`w-full bg-white p-2 border-theme-border border outline-none rounded-lg px-3 ${classes['override-select']}`}
                         >

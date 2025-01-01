@@ -1,4 +1,4 @@
-import { Field } from 'formik';
+import { ErrorMessage, Field } from 'formik';
 import CommentsIcon from '../assets/icons/CommentsIcon';
 import Card from '../lib/Card';
 import Heading from '../lib/Heading';
@@ -24,6 +24,8 @@ const CommentsPage = () => {
               <SendIcon/>
               </button>
             </div>
+            <ErrorMessage name="comments" component="div" />
+
         </div>
     );
 };
