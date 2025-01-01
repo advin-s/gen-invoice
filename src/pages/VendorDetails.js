@@ -21,7 +21,7 @@ const VendorDetails = () => {
                 <div className="py-3">
                
                     
-                    <Input type="select" name="vendor" selectoptions={['one','two']} required/>
+                    <Input type="select" name="vendor" selectoptions={['one','two']} required component="div"/>
                     <p className="text-base text-theme-content-secondary">
                         550 Main St., Lynn
                     </p>

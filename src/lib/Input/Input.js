@@ -93,11 +93,14 @@ const Input = (props) => {
                     )}
                 </label>
                 {renderFields(props)}
+                <div>
+
                 <ErrorMessage
                     name={props?.name}
                     component={props.component}
                     className="text-red-500 text-xs"
-                />
+                    />
+                    </div>
             </div>
         </>
     );

@@ -18,8 +18,8 @@ const InvoicePage = () =>{
        initialValues={{vendor:''}}
        validate={values => {
          const errors = {};
-        if(!values){
-
+        if(!values.vendor){
+          errors.vendor = "Please select a vendor"
         }
          return errors;
        }}
@@ -31,7 +31,7 @@ const InvoicePage = () =>{
          }, 400);
        }}
      >
-       {({ isSubmitting }) => (
+       {({ isSubmitting,isValid,dirty }) => (
          <Form className="">
            <div className="h-[calc(100vh-100px-68px)] overflow-y-auto scroll-pe-3 pe-3">
            <Outlet/>
@@ -43,7 +43,7 @@ const InvoicePage = () =>{
             <Button customClass="border border-theme-border w-1/2" type="button">
               Save as Draft
             </Button>
-          <Button type="submit" customClass="bg-theme text-white w-1/2" disabled={isSubmitting}>
+          <Button type="submit" customClass="bg-theme text-white w-1/2 disabled:opacity-50" disabled={!isValid || !dirty}>
              Submit & new
            </Button>
           </div>
