@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import NoDraftIcon from '../assets/icons/NoDraftIcon';
 import Button from '../lib/Button';
 import { NavLink } from 'react-router';
+import SavedForm from '../lib/SavedForm';
 
 const ViewInvoices = () => {
     const [draft, setDraft] = useState([]);
@@ -28,13 +29,15 @@ const ViewInvoices = () => {
                 </NavLink>
               </div>
                 <div className="grid lg:grid-cols-2 py-2">
-                    <div className="border-theme-border border-e h-[calc(100vh-100px)]">
+                    <div className="border-theme-border pe-3 border-e h-[calc(100vh-100px)]">
                         <p className="text-lg font-bold text-theme-content">
                             Saved Forms
                         </p>
 
                         {saved.length > 0 ? (
-                            <p>Saved items found</p>
+                          <div className='grid grid-cols-2 gap-3 pt-3'>
+                            {saved.map((item,index) => <SavedForm key={index} {...item}/>)}
+                          </div>
                         ) : (
                             <div className="h-full grid place-items-center">
                                 <div>
@@ -50,7 +53,9 @@ const ViewInvoices = () => {
                         </p>
 
                         {draft.length > 0 ? (
-                            <p>Saved items found</p>
+                           <div className='grid grid-cols-2 gap-3 pt-3'>
+                           {draft.map((item,index) => <SavedForm key={index} {...item}/>)}
+                         </div>
                         ) : (
                             <div className="h-full grid place-items-center">
                                 <div>
