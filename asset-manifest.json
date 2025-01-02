@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/gen-invoice/static/css/main.6c4f12db.css",
-    "main.js": "/gen-invoice/static/js/main.d5a5eed4.js",
+    "main.css": "/gen-invoice/static/css/main.db9da273.css",
+    "main.js": "/gen-invoice/static/js/main.4c6c888d.js",
     "static/js/453.7a81b484.chunk.js": "/gen-invoice/static/js/453.7a81b484.chunk.js",
     "static/media/animation.gif": "/gen-invoice/static/media/animation.ea2dafc36b10f6acbd4f.gif",
     "index.html": "/gen-invoice/index.html",
-    "main.6c4f12db.css.map": "/gen-invoice/static/css/main.6c4f12db.css.map",
-    "main.d5a5eed4.js.map": "/gen-invoice/static/js/main.d5a5eed4.js.map",
+    "main.db9da273.css.map": "/gen-invoice/static/css/main.db9da273.css.map",
+    "main.4c6c888d.js.map": "/gen-invoice/static/js/main.4c6c888d.js.map",
     "453.7a81b484.chunk.js.map": "/gen-invoice/static/js/453.7a81b484.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c4f12db.css",
-    "static/js/main.d5a5eed4.js"
+    "static/css/main.db9da273.css",
+    "static/js/main.4c6c888d.js"
   ]
 }
