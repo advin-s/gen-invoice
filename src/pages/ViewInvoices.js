@@ -19,6 +19,18 @@ const ViewInvoices = () => {
         console.log(savedForms, draftedForms);
     }, []);
 
+    const handleDeleteSaved = (id) =>{
+      console.log('example',id);
+      setSaved(prevSaved=> prevSaved.filter(item => item.id !== id))
+      localStorage.setItem('savedForms', JSON.stringify(saved))
+    }
+
+    const handleDeleteDrafted = (id) =>{
+      console.log('example',id);
+      setDraft(prevSaved=> prevSaved.filter(item => item.id !== id))
+      localStorage.setItem('draftedForms', JSON.stringify(saved))
+    }
+
 
     return (
         <>
@@ -39,7 +51,7 @@ const ViewInvoices = () => {
                         {saved.length > 0 ? (
                             <div className="grid grid-cols-2 gap-3 pt-3">
                                 {saved.map((item, index) => (
-                                    <SavedForm key={index} {...item} />
+                                    <SavedForm key={index} {...item} handleDelete={handleDeleteSaved} />
                                 ))}
                             </div>
                         ) : (
@@ -66,6 +78,7 @@ const ViewInvoices = () => {
                                     <SavedForm
                                         {...item}
                                         key={index}
+                                        handleDelete={handleDeleteDrafted}
                                     />
                                 ))}
                             </div>

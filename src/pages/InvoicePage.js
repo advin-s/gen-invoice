@@ -48,16 +48,18 @@ const InvoicePage = () => {
     });
 
     const handleSave = (values) => {
-      const saveArr = []
-      const randomId = new Date().getTime()
-      saveArr.push({...values,id:randomId})
-      localStorage.setItem('savedForms', JSON.stringify(saveArr))
+      handleStorage(values,'savedForms')
     }
 
     const handleDraft = (values) => {
+      handleStorage(values,'draftedForms')
+    }
+
+    const handleStorage = (values,key) =>{
       const saveArr = []
-      saveArr.push(values)
-      localStorage.setItem('draftedForms', JSON.stringify(saveArr))
+      const randomId = new Date().getTime()
+      saveArr.push({...values,id:randomId})
+      localStorage.setItem(key, JSON.stringify(saveArr))
     }
 
     return (
