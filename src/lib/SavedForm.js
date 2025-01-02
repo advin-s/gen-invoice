@@ -8,7 +8,7 @@ const SavedForm = ({handleDelete, ...props }) => {
       <div className="p-2 border rounded-lg grid grid-cols-2">
         <div className="col-span-2">
           <div className="flex justify-end gap-x-2">
-            <button className="p-2 rounded-lg border border-yellow-300">
+            {/* <button className="p-2 rounded-lg border border-yellow-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -23,7 +23,7 @@ const SavedForm = ({handleDelete, ...props }) => {
                   d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"
                 />
               </svg>
-            </button>
+            </button> */}
             <button
               className="p-2 rounded-lg border border-red-300"
               onClick={()=>handleDelete(props.id)}
