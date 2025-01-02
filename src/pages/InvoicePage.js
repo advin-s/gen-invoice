@@ -6,8 +6,12 @@ import Button from '../lib/Button';
 import MenuIcon from '../assets/icons/MenuIcon';
 import * as Yup from 'yup';
 import UploadInvoice from './UploadInvoice/UploadInvoice';
+import Toast from '../lib/Toast';
+import { useState } from 'react';
 
 const InvoicePage = () => {
+  const [toast, setToast] = useState({ show: false, message: '', type: '' });
+
     const initialValues = {
         vendor: '',
         purchase_order_number: '',
@@ -49,10 +53,12 @@ const InvoicePage = () => {
 
     const handleSave = (values) => {
       handleStorage(values,'savedForms')
+      handleToast('success', 'saved')
     }
 
     const handleDraft = (values) => {
       handleStorage(values,'draftedForms')
+      handleToast('success', 'saved to drafts')
     }
 
     const handleStorage = (values,key) =>{
@@ -60,6 +66,13 @@ const InvoicePage = () => {
       const randomId = new Date().getTime()
       saveArr.push({...values,id:randomId})
       localStorage.setItem(key, JSON.stringify(saveArr))
+    }
+
+    const handleToast = (type, message) =>{
+      setToast({ show: true, message, type });
+      setTimeout(()=>{
+        setToast(prevToast => prevToast.show = false)
+      },3000)
     }
 
     return (
@@ -73,14 +86,10 @@ const InvoicePage = () => {
                             <Formik
                                 initialValues={initialValues}
                                 validationSchema={formValidationSchema}
-                                onSubmit={(values, { setSubmitting, resetForm }) => {
-                                    setTimeout(() => {
-                                        console.log('submitting');
-                                        alert(JSON.stringify(values, null, 2));
-                                        handleSave(values)
-                                        setSubmitting(false);
-                                        resetForm()
-                                    }, 400);
+                                onSubmit={(values, { setSubmitting, resetForm,validateForm }) => {
+                                  handleSave(values)
+                                  setSubmitting(false);
+                                  resetForm()
                                 }}
                             >
                                 {({ values, resetForm, validateForm }) => (
@@ -112,6 +121,11 @@ const InvoicePage = () => {
                         </div>
                     </div>
                 </div>
+                  <Toast
+                    type={toast.type}
+                    message={toast.message}
+                    show={toast.show}
+                />
             </section>
         </>
     );
