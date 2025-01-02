@@ -47,6 +47,14 @@ const InvoicePage = () => {
         description: Yup.string().required('Please add a description')
     });
 
+    const handleSave = (values) => {
+      localStorage.setItem('formValues', JSON.stringify(values))
+    }
+
+    const handleDraft = (values) => {
+      localStorage.setItem('draftForms', JSON.stringify(values))
+    }
+
     return (
         <>
             <Header />
@@ -59,15 +67,17 @@ const InvoicePage = () => {
                             <Formik
                                 initialValues={initialValues}
                                 validationSchema={formValidationSchema}
-                                onSubmit={(values, { setSubmitting }) => {
+                                onSubmit={(values, { setSubmitting, resetForm }) => {
                                     setTimeout(() => {
                                         console.log('submitting');
                                         alert(JSON.stringify(values, null, 2));
+                                        handleSave(values)
                                         setSubmitting(false);
+                                        resetForm()
                                     }, 400);
                                 }}
                             >
-                                {({ isSubmitting, isValid, dirty }) => (
+                                {({ values, resetForm }) => (
                                     <Form className="">
                                         <div className="h-[calc(100vh-100px-68px-1.5rem)] overflow-y-auto scroll-pe-3 pe-3">
                                             <Outlet />
@@ -79,6 +89,7 @@ const InvoicePage = () => {
                                             <Button
                                                 customClass="border border-theme-border w-1/2"
                                                 type="button"
+                                                onClick={()=>{handleDraft(values);resetForm()}}
                                             >
                                                 Save as Draft
                                             </Button>
