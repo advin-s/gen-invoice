@@ -12,7 +12,7 @@ const RootLayout = () =>{
 
   useEffect(()=>{
     if(token){
-      navigate('dashboard/invoice/vendor-details')
+      navigate('/dashboard/invoice/vendor-details')
     }
 
     if(!token){
@@ -20,8 +20,10 @@ const RootLayout = () =>{
       return
     }
     const expiresIn = getTokenDuration()
+
     setTimeout(()=>{
       submit(null, {action:'/logout'})
+      navigate('/',{replace:true})
     },expiresIn)
 
   },[token,navigate,submit])
