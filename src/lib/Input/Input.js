@@ -87,7 +87,7 @@ const Input = (props) => {
                     htmlFor={props?.name}
                     className="text-sm text-theme-content-secondary capitalize"
                 >
-                    {props?.name}
+                    {props?.label}
                     {props.required && (
                         <span className="text-red-500 ms-1">*</span>
                     )}
