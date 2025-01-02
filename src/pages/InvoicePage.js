@@ -48,11 +48,11 @@ const InvoicePage = () => {
     });
 
     const handleSave = (values) => {
-      localStorage.setItem('formValues', JSON.stringify(values))
+      localStorage.setItem('savedForms', JSON.stringify(values))
     }
 
     const handleDraft = (values) => {
-      localStorage.setItem('draftForms', JSON.stringify(values))
+      localStorage.setItem('draftedForms', JSON.stringify(values))
     }
 
     return (
