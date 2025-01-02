@@ -1,35 +1,31 @@
-# gen-invoice
+# Gen-Invoice
 
-
-This is an invoice management system that allows users to manage their invoices, save them as drafts, and submit them for processing. The application also features a token-based authentication system for security and session management.
+Gen-Invoice is an invoice management system that allows users to manage invoices, save them as drafts, and submit them for processing. The application also features token-based authentication for security and session management.
 
 ## Features
 
-- User authentication with token management.
-- Dashboard for managing invoices.
-- Ability to save invoices as drafts.
-- Submit invoices for processing.
-- Automatic logout after session expiration, logs out in 5 minutes.
-- Toast notifications for feedback on save and save as draft.
+- **User Authentication**: Token-based system for secure login and session management.
+- **Dashboard**: Manage your invoices and view invoice details.
+- **Drafts**: Save invoices as drafts for later submission.
+- **Submit Invoices**: Submit invoices for processing.
+- **Automatic Logout**: Logs out the user after 5 minutes of inactivity.
+- **Toast Notifications**: Provides feedback on saving and saving invoices as drafts.
 
 ## Tech Stack
 
-- **React**: Frontend framework
-- **React Router**: For navigation and routing.
-- **Formik**: For form handling and validation.
-- **Yup**: For form validation (though you can replace it with custom validation logic).
+- **React**: Frontend framework for building the user interface.
+- **React Router**: For navigation and routing across the app.
+- **Formik**: For managing forms and handling form validation.
+- **Yup**: Schema-based form validation (can be replaced with custom validation logic).
 - **LocalStorage**: To store session data (authentication token, expiration time).
-- **TailwindCSS**: For styling the components.
-- **DummyJSON**: For backend authentication service
-
-for more info : https://dummyjson.com/
+- **TailwindCSS**: Utility-first CSS framework for styling.
+- **DummyJSON**: Fake API for backend authentication and data handling.
+  
+  [DummyJSON API](https://dummyjson.com/)
 
 ## Setup and Installation
 
 Follow the instructions below to set up and run this project locally.
-Credentials:
-username: emilys
-password: emilyspass
 
 ### Clone the Repository
 
