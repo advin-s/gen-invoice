@@ -20,10 +20,16 @@ This is an invoice management system that allows users to manage their invoices,
 - **Yup**: For form validation (though you can replace it with custom validation logic).
 - **LocalStorage**: To store session data (authentication token, expiration time).
 - **TailwindCSS**: For styling the components.
+- **DummyJSON**: For backend authentication service
+
+for more info : https://dummyjson.com/
 
 ## Setup and Installation
 
 Follow the instructions below to set up and run this project locally.
+Credentials:
+username: emilys
+password: emilyspass
 
 ### Clone the Repository
 
