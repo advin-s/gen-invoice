@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { Outlet, useLoaderData, useNavigate, useSubmit } from "react-router"
 import { getTokenDuration } from "../utils/auth"
+import Header from "../lib/Header"
 
 
 const RootLayout = () =>{
@@ -11,7 +12,7 @@ const RootLayout = () =>{
 
   useEffect(()=>{
     if(token){
-      navigate('/invoice')
+      navigate('dashboard/invoice/vendor-details')
     }
 
     if(!token){
@@ -25,7 +26,10 @@ const RootLayout = () =>{
 
   },[token,navigate,submit])
 
-  return <Outlet/>
+  return <>
+  <Header />
+  <Outlet/>
+  </>
 }
 
 export default RootLayout

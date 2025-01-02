@@ -3,21 +3,24 @@ import classes from './input.module.css';
 import CalendarIcon from '../../assets/icons/CalendarIcon';
 
 const Input = (props) => {
-    console.log(props);
+    console.log(props.name);
     const renderFields = (props) => {
+      console.log(props);
         switch (props.type) {
             case 'select':
                 return (
                     <div className="relative">
                         <Field
-                            name="color"
+                            name={props?.name}
                             as="select"
                             className={`w-full bg-white p-2 border-theme-border border outline-none rounded-lg px-3 ${classes['override-select']}`}
                         >
+                          <option selected value={''} disabled>{props?.placeholder}</option>
                             {props.selectoptions.map((option, index) => (
                                 <option key={index} value={option}>
                                     {option}
                                 </option>
+    
                             ))}
                         </Field>
                         <svg
@@ -71,6 +74,7 @@ const Input = (props) => {
                     <Field
                         type={props.type ? props.type : 'text'}
                         name={props?.name}
+                        placeholder={props?.placeholder}
                         className="border-theme-border border w-full py-2 rounded-lg outline-none px-2 text-base"
                     />
                 );
@@ -86,17 +90,20 @@ const Input = (props) => {
                     htmlFor={props?.name}
                     className="text-sm text-theme-content-secondary capitalize"
                 >
-                    {props?.name}
+                    {props?.label}
                     {props.required && (
                         <span className="text-red-500 ms-1">*</span>
                     )}
                 </label>
                 {renderFields(props)}
+                <div>
+
                 <ErrorMessage
                     name={props?.name}
                     component={props.component}
                     className="text-red-500 text-xs"
-                />
+                    />
+                    </div>
             </div>
         </>
     );
