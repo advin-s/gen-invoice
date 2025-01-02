@@ -9,41 +9,47 @@ import CommentsPage from './pages/CommentsPage';
 import VendorDetails from './pages/VendorDetails';
 import InvoiceDetails from './pages/InvoiceDetails';
 import ViewInvoices from './pages/ViewInvoices';
+import NotFoundComponent from './pages/NotFoundComponnet';
 
-const routes = createBrowserRouter([
-  {
-      path: '/',
-      element: <LoginPage />
-  },
+const routes = createBrowserRouter(
+    [
+        {
+            path: '/',
+            element: <LoginPage />
+        },
+        {
+            path: '/dashboard',
+            element: <RootLayout />,
+            loader: getToken,
+            children: [
+                {
+                    path: 'invoice',
+                    element: <InvoicePage />,
+                    loader: checkAuth,
+                    children: [
+                        { path: 'comments', element: <CommentsPage /> },
+                        { path: 'vendor-details', element: <VendorDetails /> },
+                        { path: 'invoice-details', element: <InvoiceDetails /> }
+                    ]
+                },
+                {
+                    path: 'view',
+                    element: <ViewInvoices />
+                }
+            ]
+        },
+        {
+            path: '/logout',
+            action: logoutAction
+        },
+        {
+          path:'*',
+          element:<NotFoundComponent/>
+        }
+    ],
     {
-        path: 'dashboard',
-        element: <RootLayout />,
-        loader: getToken,
-        children: [
-            {
-                path: 'invoice',
-                element: <InvoicePage />,
-                loader: checkAuth,
-                children: [
-                    { path: 'comments', element: <CommentsPage /> },
-                    { path: 'vendor-details', element: <VendorDetails/> },
-                    { path: 'invoice-details', element: <InvoiceDetails /> },
-                ]
-            },
-            {
-              path:'view',
-              element:<ViewInvoices/>
-            }
-        ]
-    },
-    {
-        path: 'logout',
-        action: logoutAction
+        basename: '/gen-invoice'
     }
-],
-{
-  basename:'/gen-invoice'
-}
 );
 
 function App() {

@@ -3,7 +3,7 @@ import { redirect } from "react-router";
 export const handleToken = (res) => {
     const token = res.accessToken;
     const expiresIn = new Date();
-    expiresIn.setHours(expiresIn.getHours() + 1);
+    expiresIn.setMinutes(expiresIn.getMinutes() + 2);
     localStorage.setItem('token', token);
     localStorage.setItem('expiresIn', expiresIn);
 };
