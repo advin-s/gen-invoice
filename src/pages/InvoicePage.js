@@ -57,7 +57,6 @@ const InvoicePage = () => {
 
     return (
         <>
-            <Header />
             <section className="bg-theme-bg">
                 <div className="container mx-auto">
                     <Nav />

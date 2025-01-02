@@ -8,17 +8,18 @@ import { action as logoutAction } from './pages/LogoutPage';
 import CommentsPage from './pages/CommentsPage';
 import VendorDetails from './pages/VendorDetails';
 import InvoiceDetails from './pages/InvoiceDetails';
+import ViewInvoices from './pages/ViewInvoices';
 
 const routes = createBrowserRouter([
+  {
+      path: '/',
+      element: <LoginPage />
+  },
     {
-        path: '/',
+        path: 'dashboard',
         element: <RootLayout />,
         loader: getToken,
         children: [
-            {
-                path: '/',
-                element: <LoginPage />
-            },
             {
                 path: 'invoice',
                 element: <InvoicePage />,
@@ -28,6 +29,10 @@ const routes = createBrowserRouter([
                     { path: 'vendor-details', element: <VendorDetails/> },
                     { path: 'invoice-details', element: <InvoiceDetails /> }
                 ]
+            },
+            {
+              path:'view',
+              element:<ViewInvoices/>
             }
         ]
     },
