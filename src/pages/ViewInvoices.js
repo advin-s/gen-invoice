@@ -8,13 +8,13 @@ const ViewInvoices = () => {
     const [saved, setSaved] = useState([]);
 
     useEffect(() => {
-        const savedItems = JSON.parse(localStorage.getItem('savedForms')) || [];
-        const draftedItems =
-            JSON.parse(localStorage.getItem('draftedForms')) || [];
-        setSaved(savedItems);
-        setDraft(draftedItems);
+        const savedForms = JSON.parse(localStorage.getItem('savedForms')) || []
+        const draftedForms = JSON.parse(localStorage.getItem('draftedForms')) || []
 
-        console.log(saved, draft);
+        setSaved(savedForms)
+        setDraft(draftedForms)
+
+        console.log(savedForms,draftedForms);
     }, []);
 
     return (
@@ -28,7 +28,7 @@ const ViewInvoices = () => {
                 </NavLink>
               </div>
                 <div className="grid lg:grid-cols-2 py-2">
-                    <div className="border-theme-border border-e h-[calc(100vh-50px-1rem)]">
+                    <div className="border-theme-border border-e h-[calc(100vh-100px)]">
                         <p className="text-lg font-bold text-theme-content">
                             Saved Forms
                         </p>

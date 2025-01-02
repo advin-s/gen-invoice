@@ -48,11 +48,15 @@ const InvoicePage = () => {
     });
 
     const handleSave = (values) => {
-      localStorage.setItem('savedForms', JSON.stringify(values))
+      const saveArr = []
+      saveArr.push(values)
+      localStorage.setItem('savedForms', JSON.stringify(saveArr))
     }
 
     const handleDraft = (values) => {
-      localStorage.setItem('draftedForms', JSON.stringify(values))
+      const saveArr = []
+      saveArr.push(values)
+      localStorage.setItem('draftedForms', JSON.stringify(saveArr))
     }
 
     return (
@@ -76,7 +80,7 @@ const InvoicePage = () => {
                                     }, 400);
                                 }}
                             >
-                                {({ values, resetForm }) => (
+                                {({ values, resetForm, validateForm }) => (
                                     <Form className="">
                                         <div className="h-[calc(100vh-100px-68px-1.5rem)] overflow-y-auto scroll-pe-3 pe-3">
                                             <Outlet />
@@ -88,7 +92,7 @@ const InvoicePage = () => {
                                             <Button
                                                 customClass="border border-theme-border w-1/2"
                                                 type="button"
-                                                onClick={()=>{handleDraft(values);resetForm()}}
+                                                onClick={()=>{handleDraft(values);validateForm();resetForm()}}
                                             >
                                                 Save as Draft
                                             </Button>
