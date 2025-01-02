@@ -3,9 +3,7 @@ import classes from './input.module.css';
 import CalendarIcon from '../../assets/icons/CalendarIcon';
 
 const Input = (props) => {
-    console.log(props.name);
     const renderFields = (props) => {
-      console.log(props);
         switch (props.type) {
             case 'select':
                 return (
@@ -81,7 +79,6 @@ const Input = (props) => {
         }
     };
 
-    console.log(renderFields(props));
 
     return (
         <>

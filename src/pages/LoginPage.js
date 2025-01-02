@@ -18,7 +18,6 @@ const LoginPage = () => {
             })
         });
 
-        console.log(response);
         if (response.status === 400) setWrongPassword(true);
         if (response.status === 200) {
             const resData = await response.json();

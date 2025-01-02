@@ -16,17 +16,14 @@ const ViewInvoices = () => {
         setSaved(savedForms);
         setDraft(draftedForms);
 
-        console.log(savedForms, draftedForms);
     }, []);
 
     const handleDeleteSaved = (id) =>{
-      console.log('example',id);
       setSaved(prevSaved=> prevSaved.filter(item => item.id !== id))
       localStorage.setItem('savedForms', JSON.stringify(saved))
     }
 
     const handleDeleteDrafted = (id) =>{
-      console.log('example',id);
       setDraft(prevSaved=> prevSaved.filter(item => item.id !== id))
       localStorage.setItem('draftedForms', JSON.stringify(saved))
     }

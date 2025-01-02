@@ -18,7 +18,6 @@ const Toast = ({ type = "default", message = "", show }) => {
   }, [type]);
 
   useEffect(() => {
-    console.log(show);
     if (show) {
       handleDisplay(true)
       const timeout = setTimeout(() => {
