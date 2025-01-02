@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import NoDraftIcon from '../assets/icons/NoDraftIcon';
+import Button from '../lib/Button';
+import { NavLink } from 'react-router';
 
 const ViewInvoices = () => {
     const [draft, setDraft] = useState([]);
@@ -18,6 +20,13 @@ const ViewInvoices = () => {
     return (
         <>
             <div className="container mx-auto">
+              <div className='pt-2'>
+                <NavLink to={'/dashboard/invoice/vendor-details'}>
+                <Button customClass="border border-theme-border px-4 block ms-auto">
+                 + Create form
+                </Button>
+                </NavLink>
+              </div>
                 <div className="grid lg:grid-cols-2 py-2">
                     <div className="border-theme-border border-e h-[calc(100vh-50px-1rem)]">
                         <p className="text-lg font-bold text-theme-content">
