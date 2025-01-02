@@ -5,6 +5,7 @@ import { Form, Formik } from 'formik';
 import Button from '../lib/Button';
 import MenuIcon from '../assets/icons/MenuIcon';
 import * as Yup from 'yup';
+import UploadInvoice from './UploadInvoice/UploadInvoice';
 
 const InvoicePage = () => {
     const initialValues = {
@@ -52,8 +53,8 @@ const InvoicePage = () => {
             <section className="bg-theme-bg">
                 <div className="container mx-auto">
                     <Nav />
-                    <div className="grid lg:grid-cols-2">
-                        <div></div>
+                    <div className="grid lg:grid-cols-2 lg:gap-x-4 py-3">
+                        <UploadInvoice/>
                         <div>
                             <Formik
                                 initialValues={initialValues}
@@ -68,7 +69,7 @@ const InvoicePage = () => {
                             >
                                 {({ isSubmitting, isValid, dirty }) => (
                                     <Form className="">
-                                        <div className="h-[calc(100vh-100px-68px)] overflow-y-auto scroll-pe-3 pe-3">
+                                        <div className="h-[calc(100vh-100px-68px-1.5rem)] overflow-y-auto scroll-pe-3 pe-3">
                                             <Outlet />
                                         </div>
                                         <div className="border border-theme-tertiary p-3 rounded-md flex items-center gap-x-3">

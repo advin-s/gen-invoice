@@ -5,7 +5,7 @@ import Heading from '../lib/Heading';
 import classes from '../lib/Input/input.module.css';
 import Input from '../lib/Input/Input';
 import Button from '../lib/Button';
-import Switch from '../lib/switch/Switch';
+import Switch from '../lib/Switch';
 
 const InvoiceDetails = () => {
     const invoiceDetails = {
