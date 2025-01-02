@@ -15,7 +15,7 @@ const Input = (props) => {
                             as="select"
                             className={`w-full bg-white p-2 border-theme-border border outline-none rounded-lg px-3 ${classes['override-select']}`}
                         >
-                          <option selected value={''} disabled>{props?.placeholder}</option>
+                          <option defaultValue={''} disabled>{props?.placeholder}</option>
                             {props.selectoptions.map((option, index) => (
                                 <option key={index} value={option}>
                                     {option}
@@ -24,16 +24,16 @@ const Input = (props) => {
                             ))}
                         </Field>
                         <svg
-                            class="text-theme-content size-5 mr-2 absolute top-1/2 end-0 -translate-y-1/2"
+                            className="text-theme-content size-5 mr-2 absolute top-1/2 end-0 -translate-y-1/2"
                             viewBox="0 0 16 16"
                             fill="currentColor"
                             aria-hidden="true"
                             data-slot="icon"
                         >
                             <path
-                                fill-rule="evenodd"
+                                fillRule="evenodd"
                                 d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
-                                clip-rule="evenodd"
+                                clipRule="evenodd"
                             ></path>
                         </svg>
                     </div>
