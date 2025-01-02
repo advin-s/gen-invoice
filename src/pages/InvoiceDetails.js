@@ -4,6 +4,8 @@ import Card from '../lib/Card';
 import Heading from '../lib/Heading';
 import classes from '../lib/Input/input.module.css';
 import Input from '../lib/Input/Input';
+import Button from '../lib/Button';
+import Switch from '../lib/switch/Switch';
 
 const InvoiceDetails = () => {
     const invoiceDetails = {
@@ -18,7 +20,7 @@ const InvoiceDetails = () => {
                 <p className="text-xl font-medium capitalize">
                     General Information
                 </p>
-                <div className="py-3">
+                <div className="pt-3">
                     <Input
                         type="select"
                         name="purchase order number"
@@ -26,57 +28,121 @@ const InvoiceDetails = () => {
                         selectoptions={['hi', 'hello']}
                     />
                 </div>
-                <p className="text-xl font-medium capitalize">
+            </div>
+            <div className="py-3">
+            <p className="text-xl font-medium capitalize">
                     Invoice Details
                 </p>
                 <div className="grid grid-cols-2 gap-3 pb-3">
                     <div>
                         <Input
                             type="select"
-                            name="invoice number"
-                            required={true}
+                            name="invoice_number"
+                            required={true} label="invoice number"
                             selectoptions={['hi', 'hello']}
+                            component="div"
                         />
                     </div>
 
                     <div>
-                        <Input type="date" name="date" required={true} />
+                        <Input type="date" label="date" name="date" required={true}
+                        component="div" />
                     </div>
 
                     <div>
                         <Input
                             type="number"
-                            name="Total amount"
+                            name="Total_amount" label="Total amount"
                             required={true}
+                            component="div"
                         />
                     </div>
 
                     <div>
                         <Input
                             type="select"
-                            name="payment terms"
+                            name="payment_terms" label="payment terms"
                             required={true}
                             selectoptions={['hi', 'hello']}
+                            component="div"
                         />
                     </div>
 
                     <div>
                         <Input
                             type="date"
-                            name="invoice due date"
+                            name="invoice_due_date" label="invoice due date"
                             required={true}
+                            component="div"
                         />
                     </div>
 
                     <div>
                         <Input
-                            type="date"
-                            name="GL post date"
+                            type="date" label="GL post date"
+                            name="gl_post-date"
                             required={true}
+                            component="div"
                         />
                     </div>
                 </div>
-                <Input type="text" name="GL post date" required={true} />
+                <Input type="text" label="Invoice description" name="invoice_description" required={true}
+                component="div" />
+            </div>
+            <div className="pb-3">
+            <p className="text-xl font-medium capitalize flex items-center justify-between">
+                    Expense Details
+                    <div className='flex gap-x-3 items-center'>
+                      <p className='text-base flex gap-x-2'>
+                        $0.00 /
+                        <span className='text-theme'>$0.00</span>
+                      </p>
+                      <Switch/>
+                    </div>
+                </p>
+                <div className="grid grid-cols-2 gap-3 pb-3 lg:me-14">
+                    <div>
+                        <Input
+                            type="number"
+                            name="line_amount"
+                            required={true} label="line amount"
+                            component="div"
+                        />
+                    </div>
+
+                    <div>
+                        <Input type="select" label="department" selectoptions={['one']} name="department" required={true}
+                        component="div" />
+                    </div>
+
+                    <div>
+                        <Input
+                            type="select"
+                            name="account" label="account"
+                            selectoptions={['one']}
+                            required={true}
+                            component="div"
+                        />
+                    </div>
+
+                    <div>
+                        <Input
+                            type="select"
+                            name="location" label="location"
+                            required={true}
+                            selectoptions={['hi', 'hello']}
+                            component="div"
+                        />
+                    </div>
+
+                </div>
+                <Input type="text" label="description" name="description" required={true}
+                component="div" />
+                <div className='pt-3'>
+                <Button type="button" customClass="border border-theme-border px-3 ms-auto block">
+                  + Add Expense Coding
+                </Button>
+                </div>
             </div>
         </div>
     );

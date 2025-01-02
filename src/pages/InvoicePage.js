@@ -21,6 +21,9 @@ const InvoicePage = () =>{
         if(!values.vendor){
           errors.vendor = "Please select a vendor"
         }
+        if(!values.purchaseOrderNumber){
+          errors.vendor = "Please select a purchase order number"
+        }
          return errors;
        }}
        onSubmit={(values, { setSubmitting }) => {
