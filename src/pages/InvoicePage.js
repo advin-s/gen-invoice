@@ -49,7 +49,8 @@ const InvoicePage = () => {
 
     const handleSave = (values) => {
       const saveArr = []
-      saveArr.push(values)
+      const randomId = new Date().getTime()
+      saveArr.push({...values,id:randomId})
       localStorage.setItem('savedForms', JSON.stringify(saveArr))
     }
 

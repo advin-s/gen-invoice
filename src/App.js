@@ -27,7 +27,7 @@ const routes = createBrowserRouter([
                 children: [
                     { path: 'comments', element: <CommentsPage /> },
                     { path: 'vendor-details', element: <VendorDetails/> },
-                    { path: 'invoice-details', element: <InvoiceDetails /> }
+                    { path: 'invoice-details', element: <InvoiceDetails /> },
                 ]
             },
             {

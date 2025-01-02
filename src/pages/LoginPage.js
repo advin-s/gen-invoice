@@ -23,7 +23,7 @@ const LoginPage = () => {
         if (response.status === 200) {
             const resData = await response.json();
             handleToken(resData);
-            navigate('/invoice');
+            navigate('/dashboard/view');
         }
     };
     return (
