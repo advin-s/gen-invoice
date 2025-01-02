@@ -15,10 +15,12 @@ const Input = (props) => {
                             as="select"
                             className={`w-full bg-white p-2 border-theme-border border outline-none rounded-lg px-3 ${classes['override-select']}`}
                         >
+                          <option selected value={''} disabled>{props?.placeholder}</option>
                             {props.selectoptions.map((option, index) => (
                                 <option key={index} value={option}>
                                     {option}
                                 </option>
+    
                             ))}
                         </Field>
                         <svg
@@ -72,6 +74,7 @@ const Input = (props) => {
                     <Field
                         type={props.type ? props.type : 'text'}
                         name={props?.name}
+                        placeholder={props?.placeholder}
                         className="border-theme-border border w-full py-2 rounded-lg outline-none px-2 text-base"
                     />
                 );

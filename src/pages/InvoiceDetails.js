@@ -28,6 +28,7 @@ const InvoiceDetails = () => {
                         required={true}
                         component="div"
                         selectoptions={['hi', 'hello']}
+                        placeholder="Select PO Number"
                     />
                 </div>
             </div>
@@ -44,6 +45,7 @@ const InvoiceDetails = () => {
                             label="invoice number"
                             selectoptions={['hi', 'hello']}
                             component="div"
+                            placeholder="Select Vendor"
                         />
                     </div>
 
@@ -75,6 +77,7 @@ const InvoiceDetails = () => {
                             required={true}
                             selectoptions={['hi', 'hello']}
                             component="div"
+                            placeholder="Select"
                         />
                     </div>
 
@@ -135,6 +138,7 @@ const InvoiceDetails = () => {
                             name="department"
                             required={true}
                             component="div"
+                            placeholder="Select Department"
                         />
                     </div>
 
@@ -146,6 +150,7 @@ const InvoiceDetails = () => {
                             selectoptions={['one']}
                             required={true}
                             component="div"
+                            placeholder="Select Account"
                         />
                     </div>
 
@@ -157,6 +162,7 @@ const InvoiceDetails = () => {
                             required={true}
                             selectoptions={['hi', 'hello']}
                             component="div"
+                            placeholder="Select Location"
                         />
                     </div>
                 </div>
